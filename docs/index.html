@@ -1,5 +1,214 @@
-<html>
-  <body>
-    asdf
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maths Links</title>
+<meta name="description" content="Seemingly different problems often turn out to be linked by a common mathematical explanation.">
+<style>
+  :root {
+    --paper: #faf7f1;
+    --panel: #efe9dd;
+    --ink: #1a1a1a;
+    --muted: #5d5850;
+    --chain: #6e6a63;
+    --accent: #8a4b1f;          /* warm wood tone, taken from the arch */
+    --accent-soft: #f3e3d3;
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #191816;
+      --panel: #26241f;
+      --ink: #ece8e1;
+      --muted: #aaa49a;
+      --chain: #8e897f;
+      --accent: #e0a46e;
+      --accent-soft: #3a2c20;
+    }
+    .headline img, .footer .logo { filter: invert(1); }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  main { max-width: 880px; margin: 0 auto; padding: 56px 16px 40px; }
+
+  /* ---------- header ---------- */
+  .headline { margin: 0; text-align: center; }
+  .headline img { width: min(560px, 92%); height: auto; display: inline-block; }
+  .intro {
+    max-width: 34em;
+    margin: 28px auto 48px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--muted);
+  }
+
+  /* ---------- entries ---------- */
+  .entry {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    align-items: center;
+    background: color-mix(in srgb, var(--panel) 45%, var(--paper));
+    border: 1px solid color-mix(in srgb, var(--chain) 22%, transparent);
+    border-radius: var(--radius);
+    padding: 22px;
+  }
+  .entry:nth-of-type(even) { grid-template-columns: 1fr 280px; }
+  .entry:nth-of-type(even) .figure { order: 2; }
+
+  .figure {
+    height: 230px;
+    margin: 0;
+    border-radius: 10px;
+    background: var(--panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .figure img { max-width: 100%; max-height: 100%; display: block; }
+  .figure.cover img { width: 100%; height: 100%; object-fit: cover; }
+  .figure.pad img { max-width: 88%; max-height: 86%; }
+  .figure img.tall { height: 88%; width: auto; }
+
+  .text h2 { margin: 0 0 10px; font-size: 1.6rem; line-height: 1.2; }
+  .text p  { margin: 0; color: var(--muted); }
+
+  /* ---------- the chain joining consecutive entries ---------- */
+  .link {
+    position: relative;
+    height: 132px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .link::before {               /* a hanging chain: alternate face-on and edge-on links */
+    content: "";
+    position: absolute;
+    top: -8px; bottom: -8px;    /* hooks just into the cards above and below */
+    left: 50%;
+    width: 14px;
+    transform: translateX(-50%);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='28'%3E%3Cg fill='none' stroke='%236e6a63' stroke-width='2.2' stroke-linecap='round'%3E%3Crect x='2' y='5' width='10' height='18' rx='5'/%3E%3Cpath d='M7 -6V6M7 22V34'/%3E%3C/g%3E%3C/svg%3E") repeat-y center top;
+    z-index: 0;
+  }
+  .link a {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border: 2px solid var(--chain);
+    border-radius: 50%;
+    background: var(--paper);
+    transition: background .15s, border-color .15s, transform .15s;
+  }
+  .link a svg { flex: none; color: var(--accent); }
+  .link a:hover, .link a:focus-visible {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    transform: scale(1.12);
+    outline: none;
+  }
+
+  /* ---------- footer ---------- */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid color-mix(in srgb, var(--chain) 30%, transparent);
+    display: flex;
+    justify-content: center;
+  }
+  .footer a { display: inline-block; line-height: 0; }
+  .footer .logo { height: 54px; width: auto; }
+
+  /* ---------- small screens: stack image above text ---------- */
+  @media (max-width: 680px) {
+    body { font-size: 17px; }
+    main { padding-top: 32px; }
+    .entry, .entry:nth-of-type(even) { grid-template-columns: 1fr; gap: 18px; padding: 16px; }
+    .entry:nth-of-type(even) .figure { order: 0; }
+    .figure { height: 210px; }
+    .text { text-align: center; }
+    .link { height: 112px; }
+  }
+  @media (prefers-color-scheme: dark) {
+    .link::before { filter: brightness(1.35); }
+  }
+</style>
+</head>
+
+<body>
+<main>
+  <h1 class="headline"><img src="headline.svg" alt="Maths Links" width="1299" height="334"></h1>
+
+  <p class="intro">Seemingly different problems often turn out to be linked by a common mathematical explanation.</p>
+
+  <section class="entry" id="arches">
+    <figure class="figure pad"><img src="arch_cutout.png" alt="A self-supporting arch built from wooden blocks"></figure>
+    <div class="text">
+      <h2>Arches</h2>
+      <p>What is the optimal shape for a self-supporting arch?</p>
+    </div>
+  </section>
+
+  <div class="link">
+    <a href="arches-chains.html" aria-label="What links arches and hanging chains?" title="What links arches and hanging chains?">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+    </a>
+  </div>
+
+  <section class="entry" id="chains">
+    <figure class="figure cover"><img src="chain.jpg" alt="A fine chain hanging between two points"></figure>
+    <div class="text">
+      <h2>Hanging chains</h2>
+      <p>What is the curve traced out by a uniform chain suspended from its end points?</p>
+    </div>
+  </section>
+
+  <div class="link">
+    <a href="chains-catenoids.html" aria-label="What links hanging chains and soap films?" title="What links hanging chains and soap films?">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+    </a>
+  </div>
+
+  <section class="entry" id="rotation-films">
+    <figure class="figure cover"><img src="Bulle_cat%C3%A9no%C3%AFde.png" alt="A catenoid soap film spanning two parallel circular rings"></figure>
+    <div class="text">
+      <h2>Rotation symmetric soap films</h2>
+      <p>What is the shape of a soap film spanning two parallel circles?</p>
+    </div>
+  </section>
+
+  <div class="link">
+    <a href="catenoids-helicoids.html" aria-label="What links rotation and spiral soap films?" title="What links rotation and spiral soap films?">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+    </a>
+  </div>
+
+  <section class="entry" id="spiral-films">
+    <figure class="figure pad"><img class="tall" src="helicoid_cropped.gif" alt="A soap film spanned by a double helix of wire"></figure>
+    <div class="text">
+      <h2>Spiral symmetric soap films</h2>
+      <p>What is the shape of a soap film spanned by a double helix?</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <a href="https://www.bath.ac.uk/departments/department-of-mathematical-sciences/"><img class="logo" src="UoBath_Logo_Dept_of_Mathematical_Sciences-Black.png" alt="University of Bath, Department of Mathematical Sciences"></a>
+  </footer>
+</main>
+</body>
 </html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maths Links</title>
+<meta name="description" content="Seemingly different problems often turn out to be linked by a common mathematical explanation.">
+<style>
+  :root {
+    --paper: #faf7f1;
+    --panel: #efe9dd;
+    --ink: #1a1a1a;
+    --muted: #5d5850;
+    --chain: #6e6a63;
+    --accent: #8a4b1f;          /* warm wood tone, taken from the arch */
+    --accent-soft: #f3e3d3;
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #191816;
+      --panel: #26241f;
+      --ink: #ece8e1;
+      --muted: #aaa49a;
+      --chain: #8e897f;
+      --accent: #e0a46e;
+      --accent-soft: #3a2c20;
+    }
+    .headline img, .footer .logo { filter: invert(1); }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+  main { max-width: 880px; margin: 0 auto; padding: 56px 16px 40px; }
+
+  /* ---------- header ---------- */
+  .headline { margin: 0; text-align: center; }
+  .headline img { width: min(560px, 92%); height: auto; display: inline-block; }
+  .intro {
+    max-width: 34em;
+    margin: 28px auto 48px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--muted);
+  }
+
+  /* ---------- entries ---------- */
+  .entry {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    align-items: center;
+    background: color-mix(in srgb, var(--panel) 45%, var(--paper));
+    border: 1px solid color-mix(in srgb, var(--chain) 22%, transparent);
+    border-radius: var(--radius);
+    padding: 22px;
+  }
+  .entry:nth-of-type(even) { grid-template-columns: 1fr 280px; }
+  .entry:nth-of-type(even) .figure { order: 2; }
+
+  .figure {
+    height: 230px;
+    margin: 0;
+    border-radius: 10px;
+    background: var(--panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .figure img { max-width: 100%; max-height: 100%; display: block; }
+  .figure.cover img { width: 100%; height: 100%; object-fit: cover; }
+  .figure.pad img { max-width: 88%; max-height: 86%; }
+
+  .text .num {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .text h2 { margin: 4px 0 10px; font-size: 1.6rem; line-height: 1.2; }
+  .text p  { margin: 0; color: var(--muted); }
+
+  /* ---------- the chain joining consecutive entries ---------- */
+  .link {
+    position: relative;
+    height: 132px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .link::before {               /* a hanging chain: alternate face-on and edge-on links */
+    content: "";
+    position: absolute;
+    top: -8px; bottom: -8px;    /* hooks just into the cards above and below */
+    left: 50%;
+    width: 14px;
+    transform: translateX(-50%);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='28'%3E%3Cg fill='none' stroke='%236e6a63' stroke-width='2.2' stroke-linecap='round'%3E%3Crect x='2' y='5' width='10' height='18' rx='5'/%3E%3Cpath d='M7 -6V6M7 22V34'/%3E%3C/g%3E%3C/svg%3E") repeat-y center top;
+    z-index: 0;
+  }
+  .link a {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 18px 9px 12px;
+    border: 2px solid var(--chain);
+    border-radius: 999px;
+    background: var(--paper);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.98rem;
+    transition: background .15s, border-color .15s, color .15s, transform .15s;
+  }
+  .link a svg { flex: none; color: var(--accent); }
+  .link a:hover, .link a:focus-visible {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    transform: scale(1.04);
+    outline: none;
+  }
+  .link a .arrow { color: var(--accent); transition: transform .15s; }
+  .link a:hover .arrow { transform: translateX(3px); }
+
+  /* ---------- footer ---------- */
+  .footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid color-mix(in srgb, var(--chain) 30%, transparent);
+    display: flex;
+    justify-content: center;
+  }
+  .footer .logo { height: 54px; width: auto; }
+
+  /* ---------- small screens: stack image above text ---------- */
+  @media (max-width: 680px) {
+    body { font-size: 17px; }
+    main { padding-top: 32px; }
+    .entry, .entry:nth-of-type(even) { grid-template-columns: 1fr; gap: 18px; padding: 16px; }
+    .entry:nth-of-type(even) .figure { order: 0; }
+    .figure { height: 210px; }
+    .text { text-align: center; }
+    .link { height: 112px; }
+    .link a { font-size: 0.92rem; }
+  }
+  @media (prefers-color-scheme: dark) {
+    .link::before { filter: brightness(1.35); }
+  }
+</style>
+</head>
+
+<body>
+<main>
+<h1>Linking hanging chains and rotation symmetric soap films</h1>
+
+<h3>Hanging chains and gravitational potential</h3>
+
+To understand the shape of a hanging chain, as an alternative to considering
+the forces acting between the links one can instead consider the gravitational
+potential energy. Each link of the chain has a gravitational potential
+proportional to its mass and its height above a reference point. The force
+of gravity tries to push the chain in a direction that reduces its
+gravitational potential. The shape of a hanging chain in static equilibrium
+will therefore be the curve that gives the lowest possible total
+gravitational potential energy, given the constraints (the length of the
+chain, and where the end points are fixed).
+
+<h3>Soap films and surface tension</h3>
+
+Some fluids do not like to mix, causing surface tension. It requires a force to
+push blobs of one fluid into the other, and the energy required is proportional
+to the area of the interface.
+
+In the case of a soap film spanning a wire frame, if it is possible to deform
+the soap film in a way that reduces the area, then that reduces the potential
+energy stored in the surface tension, so there is a force pushing the soap film
+in that direction. Hence in a static equilibrium, there can be no nearby
+surfaces bounded by the same wire frame but with smaller area.
+The soap film wishes it could just turn into a little droplet,
+but it can't see any way to get there without first going in a direction
+that increases the interface area.
+
+<h3>Soap films spanned by two parallel circles</h3>
+
+Such a surface has a rotational symmetry, and can be described 
+in terms of a profile curve in a plane: rotate the profile curve around an axis
+(contained in the same plane) to sweep out a surface. For each small piece
+of the curve, the area it sweeps out is proportional to the product of its
+length and its distance to the axis.
+</main>
+</body>
+</html>
