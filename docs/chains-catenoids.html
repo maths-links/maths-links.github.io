@@ -170,7 +170,7 @@
 To understand the shape of a hanging chain, as an alternative to considering
 the forces acting between the links one can instead consider the gravitational
 potential energy. Each link of the chain has a gravitational potential
-proportional to its mass and its height above a reference point. The force
+proportional to its mass and its height above a reference line. The force
 of gravity tries to push the chain in a direction that reduces its
 gravitational potential. The shape of a hanging chain in static equilibrium
 will therefore be the curve that gives the lowest possible total
@@ -179,26 +179,56 @@ chain, and where the end points are fixed).
 
 <h3>Soap films and surface tension</h3>
 
-Some fluids do not like to mix, causing surface tension. It requires a force to
+<p>Some fluids do not like to mix, causing surface tension. It requires a force to
 push blobs of one fluid into the other, and the energy required is proportional
-to the area of the interface.
+to the area of the interface.</p>
 
-In the case of a soap film spanning a wire frame, if it is possible to deform
+<p>In the case of a soap film spanning a wire frame, if it is possible to deform
 the soap film in a way that reduces the area, then that reduces the potential
 energy stored in the surface tension, so there is a force pushing the soap film
 in that direction. Hence in a static equilibrium, there can be no nearby
 surfaces bounded by the same wire frame but with smaller area.
 The soap film wishes it could just turn into a little droplet,
 but it can't see any way to get there without first going in a direction
-that increases the interface area.
+that increases the interface area.</p>
 
-<h3>Soap films spanned by two parallel circles</h3>
+<h3>Soap films spanned by two circles centred on a common axis</h3>
 
-Such a surface has a rotational symmetry, and can be described 
-in terms of a profile curve in a plane: rotate the profile curve around an axis
-(contained in the same plane) to sweep out a surface. For each small piece
-of the curve, the area it sweeps out is proportional to the product of its
-length and its distance to the axis.
+Such a surface inherits the rotational symmetry of the boundary,
+and can be described in terms of a profile curve in a plane containing the
+axis: rotate the profile curve around the axis to sweep out a "surface of revolution".
+For each small piece of the curve, the area it sweeps out is proportional to
+the product of its length and its distance to the axis. The profile curve
+will therefore be one that at least locally minimises a notion of
+"arc length weighted by distance to the axis".
+
+<h3>The link</h3>
+
+<p>If we place the reference line in the definition of the gravitational
+potential at the axis of the surface of revolution, then the
+gravitational potential energy of the hanging chain is the same thing as the
+weighted arc length of the profile curve. The two questions therefore amount to minimise the same property of a curve!</p>
+
+<p>As a consequence, the profile curve of these rotationally symmetric soap films will can always be realised as the curve of a hanging chain; these surfaces are therefore called catenoids.</p>
+
+<h3>Instability</h3>
+
+<p>However, the analogy is not entirely perfect, because the profile curve
+of the soap film can be stretched arbitrarily, while the arc length of the
+hanging chain is fixed! This corresponds to the fact that rotating a hanging chain about an axis yields a possible soap film only for a carefully chosen axis.</p>
+
+<p>In fact, as one changes the boundary conditions, the catenoidal soap film
+behaves very differently to a hanging chain. As one pulls the end points of the hanging chain further apart, it always settles into another catenary curve shape. But if the circles bounding the soap film are moved part beyond a critical distance (if the circles have equal diameter, the critical distance is very close to 2/3 of that diameter), then the soap film becomes unstable and collapses;
+often the soap film then settles as two separate discs, each filling in
+one of the circles, which gives a different surface with the same boundary, but smaller area than before.</p>
+
+<p>To use a hanging chain to "simulate" a soap film, one can let one end of the chain hang over a pulley and collect in a pile on the floor. As one pulls the other end, the effective arc length of the chain (from the pulley to the end) can change freely, and one sees the same effect: when the end is pulled beyond a critical distance, the chain collapses to the floor.</p>
+
+<p>Previous link: <a href=arches-chains.html>Arches and hanging chains</a></p>
+
+<p>Next link: <a href=catenoids-helicoids.html>Rotation and spiral symmetric soap films</a>
+
+<p><a href=index.html>Maths Links home</a>
 </main>
 </body>
 </html>
